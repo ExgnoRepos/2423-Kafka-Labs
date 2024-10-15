@@ -1,0 +1,28 @@
+*.class
+*.out
+.idea/
+.~lock*
+*.odt
+
+# Package Files #
+*.jar
+*.war
+*.ear
+target
+*.zip
+*.data
+*.csv
+*.json
+*.html
+.ipynb_checkpoints
+
+.classpath
+.project
+.settings
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/target/
+*.iml
+
+.factorypath
