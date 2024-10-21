@@ -74,7 +74,7 @@ public class StreamingConsumer4_Map {
 							//# TODO : construct a new KeyValue as follows
 							//    key = action
 							//    value = 1
-							// actionKV = new KeyValue<>(???, ???);
+							actionKV = new KeyValue<>(action, 1);
 							
 							logger.debug("map() : returning : " + actionKV);
 							

@@ -15,6 +15,7 @@ import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.KeyValueMapper;
 import org.apache.kafka.streams.kstream.Printed;
+import org.apache.kafka.streams.kstream.Produced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -86,16 +87,14 @@ public class StreamingConsumer5_GroupBy {
 		KGroupedStream<String, Integer> grouped = actionStream
 				.groupByKey(Grouped.with(Serdes.String(), Serdes.Integer()));
 
-		//# TODO: finally count the grouped data
-		//# Hint: the function is 'count'
-		//final KTable<String, Long> actionCount = grouped.???();
+		//# Finally count the grouped data
+		final KTable<String, Long> actionCount = grouped.count();
 
-		//# TODO: print KTable so we can see it
-		//actionCount.toStream().print(Printed.toSysOut());
+		//# print KTable so we can see it
+		actionCount.toStream().print(Printed.toSysOut());
 
-		//# BONUS-lab: lets write the data into another topic
-		//# Hint : param 1 : name of queue
-		// actionCount.toStream().to("actionCount", Produced.with(Serdes.String(), Serdes.Long()));
+		// Lets write the data into another topic
+		/actionCount.toStream().to("actionCount", Produced.with(Serdes.String(), Serdes.Long()));
 
 		// start the stream
 		final KafkaStreams streams = new KafkaStreams(builder.build(), config);

@@ -51,8 +51,7 @@ public class StreamingConsumer3_Filter {
 			//// more robust solution: parse JSON data
 			try {
 				ClickstreamData clickstreamData = gson.fromJson(value, ClickstreamData.class);
-				// TODO-1 : check if action.equals("clicked")
-				return ((clickstreamData.action != null) && (clickstreamData.action.equals("???")));
+				return ((clickstreamData.action != null) && (clickstreamData.action.equals("clicked")));
 
 			} catch (Exception e) {
 				return false;

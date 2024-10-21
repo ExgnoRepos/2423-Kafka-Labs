@@ -45,9 +45,8 @@ public class StreamingConsumer2_Foreach {
 		clickstream.foreach(new ForeachAction<String, String>() {
 			long counter = 0;
 			public void apply(String key, String value) {
-				counter ++;
-				//# TODO : print out the record (key and value)
-				//logger.debug("FOREACH [" + counter + "]:: KEY:" + ??? + ", VALUE:" + ??? + "\n");
+				counter++;
+				logger.debug("FOREACH [" + counter + "]:: KEY:" + key + ", VALUE:" + value + "\n");
 			}
 		});
 
