@@ -1,0 +1,14 @@
+Solution for reporting action in DomainTrafficReporter1.java
+
+around line : 70
+
+// ===== TODO: also report action stats ====
+				try {
+					ClickstreamData clickstreamData = gson.fromJson(value, ClickstreamData.class);
+					String action = clickstreamData.action;
+					Meter actionMeter = MyMetricsRegistry.metrics
+							.meter("kafka-metrics2.consumer.action." + action);
+					actionMeter.mark();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}

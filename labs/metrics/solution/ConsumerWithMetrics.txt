@@ -1,0 +1,14 @@
+To measure processing time
+==========================
+
+Declare a timer first
+	private static final Timer timerProcessingTime = MyMetricsRegistry.metrics.timer("kafka-metrics1.consumer.processing-time");
+	
+
+And to measure the processing time as follows:
+line number around 58:
+				final Timer.Context timerContext = timerProcessingTime.time();
+				processEvent(key, value);
+				timerContext.stop();
+				
+And in Grafana choose metric : kafka-metrics1.consumer.processing-time
