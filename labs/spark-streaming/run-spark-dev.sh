@@ -18,7 +18,7 @@ if [ -z "$cmd" ] ; then
                 -v $HOME/.ivy2:/home/jovyan/.ivy2  \
                 -v $(pwd):/home/jovyan/workspace:z   \
                 -w /home/jovyan/workspace \
-                -p 8888:8888 \
+#                -p 8888:8888 \
                 elephantscale/spark-dev  $*
 else
 ## running a custom cmd, no need for port mapping
